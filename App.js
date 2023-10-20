@@ -2,8 +2,10 @@ import { StyleSheet, Text, View, Image, Pressable, FlatList } from 'react-native
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import index1 from './index1';
+import index2 from './index2';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+// import Ionicons from 'react-native-vector-icons/Ionicons';
+import { Ionicons } from '@expo/vector-icons';
 
 
 
@@ -18,13 +20,6 @@ function HomeScreen() {
   );
 }
 
-function SettingsScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Settings!</Text>
-    </View>
-  );
-}
 function GoBackScreen() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -32,12 +27,12 @@ function GoBackScreen() {
     </View>
   );
 }
-
+// screenOptions={{ tabBarStyle: { backgroundColor: '#1BA9FF' }}}
 export default function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator
-        initialRouteName='Index1'
+        initialRouteName='Index2'
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
@@ -56,12 +51,15 @@ export default function App() {
             return <Ionicons name={iconName} size={size} color={color} />;
           },
           headerShown: false,
-          tabBarLabel: ''
+          tabBarLabel: '',
+          tabBarStyle: { backgroundColor: '#1BA9FF' }
         })}
+
       >
-        <Tab.Screen name='Settings' component={SettingsScreen} />
-        <Tab.Screen name="Index1" component={index1} />  
-        <Tab.Screen name='Goback' component={GoBackScreen} />
+        <Tab.Screen name='Settings' component={index2} />
+        <Tab.Screen name="Index1" component={index1} />
+        <Tab.Screen name='Goback' component={GoBackScreen}
+        />
       </Tab.Navigator>
     </NavigationContainer>
   );

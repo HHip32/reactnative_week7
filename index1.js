@@ -44,7 +44,7 @@ const data = [
     id: 7,
     path: require('./assets/trump1.png'),
     shopName: "Minh Long Book",
-    desciptions: "Denel Trump Thiên tài lãnh đạo"
+    desciptions: "Donald Trump Thiên tài lãnh đạo"
   },
 ]
 const renderItem = ({ item }) => (
